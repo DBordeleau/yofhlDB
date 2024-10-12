@@ -1,0 +1,43 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Paddyville Lucifers
+{% endblock %}
+
+{% block main %}
+<div class="row justify-content-center">
+    <div class="card" style="width:20rem;margin:20px 0 24px 0 text-center">
+        <img class="card-img-top" src="https://fantraximg.com/logos/tmLogo_kll9x2q8ku861h0p_512.jpg" alt="" style="width:100%">
+        <div class="card-body">
+            <h4 class="card-title">Paddyville Lucifers</h4>
+            <p class="card-text"><b>Previously known as:</b> Hub City Hyman Hounds</p>
+            <p class="card-text"><b>Overall record:</b> 107-53</p>
+            <p class="card-text"><b>Playoff Berths:</b> 5</p>
+            <p class="card-text"><b>Finals Appearances:</b> 2021, 2020, 2019</p>
+            <p class="card-text"><b>Jagr Cups:</b> 2021, 2019</p>
+        </div>
+    </div>
+</div>
+
+<div class="section">
+    <h2>Top 10 Paddyville Devils of All-Time</h2>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Player</th>
+                <th>Position</th>
+                <th>FPts</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for stat in paddyville_stats %}
+            <tr>
+                <td>{{ stat.Player }}</td>
+                <td>{{ stat.Position }}</td>
+                <td>{{ stat['SUM(FPTS)'] }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock %}

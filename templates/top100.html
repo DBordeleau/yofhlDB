@@ -1,0 +1,29 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Top 100 All-Time Career Fantasy Points
+{% endblock %}
+
+{% block main %}
+<div class="section">
+    <h2>Top 100 All-Time Career Fantasy Points</h2>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Player</th>
+                <th>Position</th>
+                <th>FPts</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for stat in career_stats %}
+            <tr>
+                <td>{{ stat.Player }}</td>
+                <td>{{ stat.Position }}</td>
+                <td>{{ stat['SUM(FPTS)'] }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock %}

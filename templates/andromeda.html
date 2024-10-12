@@ -1,0 +1,42 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Andromeda Space Invaders
+{% endblock %}
+
+{% block main %}
+<div class="row justify-content-center">
+    <div class="card" style="width:20rem;margin:20px 0 24px 0 text-center">
+        <img class="card-img-top" src="https://fantraximg.com/logos/tmLogo_b5tbd373jzk5vp00_512.jpg" alt="Andromeda Logo" style="width:100%">
+        <div class="card-body">
+            <h4 class="card-title">Andromeda Space Invaders</h4>
+            <p class="card-text"><b>Overall record:</b> 80-79</p>
+            <p class="card-text"><b>Playoff Berths:</b> 4</p>
+            <p class="card-text"><b>Finals Appearances:</b> 0</p>
+            <p class="card-text"><b>Jagr Cups:</b> None</p>
+        </div>
+    </div>
+</div>
+
+<div class="section">
+    <h2>Top 10 Andromemda Space Invaders of All-Time</h2>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Player</th>
+                <th>Position</th>
+                <th>FPts</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for stat in andromeda_stats %}
+            <tr>
+                <td>{{ stat.Player }}</td>
+                <td>{{ stat.Position }}</td>
+                <td>{{ stat['SUM(FPTS)'] }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock %}

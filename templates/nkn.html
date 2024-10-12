@@ -1,0 +1,43 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    North Kariya Nukes
+{% endblock %}
+
+{% block main %}
+<div class="row justify-content-center">
+    <div class="card" style="width:20rem;margin:20px 0 24px 0 text-center">
+        <img class="card-img-top" src="https://fantraximg.com/logos/tmLogo_8x7ka0vbkwu7jz07_512.jpg" alt="" style="width:100%">
+        <div class="card-body">
+            <h4 class="card-title">North Kariya Nukes</h4>
+            <p class="card-text"><b>Previously known as:</b> Good Kid mAAr City, Drunk Gallyways</p>
+            <p class="card-text"><b>Overall record:</b> 65-95</p>
+            <p class="card-text"><b>Playoff Berths:</b> 2</p>
+            <p class="card-text"><b>Finals Appearances:</b> 2020</p>
+            <p class="card-text"><b>Jagr Cups:</b> None</p>
+        </div>
+    </div>
+</div>
+
+<div class="section">
+    <h2>Top 10 North Kariya Nukes of All-Time</h2>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Player</th>
+                <th>Position</th>
+                <th>FPts</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for stat in nkn_stats %}
+            <tr>
+                <td>{{ stat.Player }}</td>
+                <td>{{ stat.Position }}</td>
+                <td>{{ stat['SUM(FPTS)'] }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock %}

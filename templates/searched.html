@@ -1,0 +1,45 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Search Results
+{% endblock %}
+
+{% block main %}
+<div class="section">
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Player</th>
+                <th>NHL Team</th>
+                <th>Position</th>
+                <th>Season Rank</th>
+                <th>YOFHL Team</th>
+                <th>FPts</th>
+                <th>FP/G</th>
+                <th>Year</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for stat in player_stats %}
+            <tr>
+                <td>{{ stat.Player }}</td>
+                <td>{{ stat.NHLTeam }}</td>
+                <td>{{ stat.Position }}</td>
+                <td>{{ stat.SeasonRank }}</td>
+                <td>{{ stat.YOFHLTeam }}</td>
+                <td>{{ stat.FPTS }}</td>
+                <td>{{ stat.FPG }}</td>
+                <td>{{ stat.Year }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+
+<form action="/search" method="post">
+    <div class="mb-3">
+        <input autocomplete="off" autofocus class="form-control mx-auto w-auto" id="player" name="player" placeholder="Player Name" type="text">
+    </div>
+    <button class="btn btn-primary" type="submit">Search</button>
+</form>
+{% endblock %}
